@@ -1,0 +1,86 @@
+ /* Reset y básicos */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: sans-serif; }
+
+    header { background: #2c3e50; }
+    nav { display: flex; padding: 1rem 1rem; align-items: center; justify-content: center;}
+
+    /* Estilo de los enlaces principales */
+    nav > a,
+    nav > .dropdown > a {
+      color: #ecf0f1;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      position: relative;
+      padding: 0rem 0.5rem;
+    }
+    nav > a:hover,
+    nav > .dropdown:hover > a {
+      color: #bdc3c7;
+    }
+
+    /* Contenedor dropdown */
+    .dropdown { position: relative; }
+
+    /* Submenú oculto */
+    .dropdown .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ecf0f1;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      list-style: none;
+      min-width: 160px;
+      z-index: 100;
+    }
+    .dropdown .submenu li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #2c3e50;
+      text-decoration: none;
+    }
+    .dropdown .submenu li a:hover {
+      background: #bdc3c7;
+      color: #2c3e50;
+    }
+
+    /* Mostrar submenu on hover */
+    .dropdown:hover .submenu {
+      display: block;
+    }
+
+
+    /* Boton intranet */
+.button-1 {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #F082AC;
+}
