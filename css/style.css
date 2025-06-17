@@ -1,19 +1,60 @@
+ 
+
+ /* Importación de Fuentes */
+
+
+
+ /* Fuente Light */
+  @font-face {
+  font-family: 'Gob_CL';
+  src: url('../fonts/gobCL_Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+ }
+  /* Fuente Regular */
+ @font-face {
+  font-family: 'Gob_CL';
+  src: url('../fonts/gobCL_Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+ }
+ /* Fuente Bold */
+  @font-face {
+  font-family: 'Gob_CL';
+  src: url('../fonts/gobCL_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+ }
+ /* Fuente Heavy */
+  @font-face {
+  font-family: 'Gob_CL';
+  src: url('../fonts/gobCL_Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+ }
+ 
+ 
  /* Reset y básicos */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: sans-serif; }
+    body { font-family: 'Gob_CL' ,sans-serif; }
 
     header { 
-  /* Ejemplo de fondo tipo “teal → gris azulado → durazno” */
-  background: linear-gradient(
-    90deg,
-    #4ba3a3 0%,
-    #8fa3af 35%,
-    #e2a67b 75%,
-    #d78b6c 100%
-  );
+      background: linear-gradient(
+        90deg,
+        #2e6a6a 0%,
+        #8fa3af 35%,
+        #e2a67b 75%,
+        #d78b6c 100%
+      );
+      margin-top: 3rem;
+   }
 
- }
-    nav { display: flex; padding: 0.5rem 1rem; align-items: center; justify-content: center;}
+    nav { display: flex; padding: 0.5rem 5rem 0.5rem 1rem; align-items: center; justify-content: flex-end;}
+    
 
     /* Estilo de los enlaces principales */
     nav > a,
@@ -22,16 +63,27 @@
       text-decoration: none;
       margin-right: 2rem;
       position: relative;
-      padding: 5px 40px 5px 5px;
-      border-right: 1px solid rgb(255 255 255 / 35%);
+      padding: 10px 20px;
+      font-size: 18px;
+      text-transform: uppercase;
     }
-    #contacto{
-      border: none;
+    
+    nav a:not(:last-child)::after {
+      content: "|";
+      color: rgba(255,255,255,0.6); /* tono suave */
+      position: absolute;
+      right: -0.75rem;             /* lo sitúa justo en el margen */
+      top: 50%;
+      transform: translateY(-50%);
     }
+
 
     nav > a:hover,
     nav > .dropdown:hover > a {
-      color: #bdc3c7;
+      color: #353535;
+      background-color: #ffffff7b;
+      border-radius: 15px;
+
     }
 
     /* Contenedor dropdown */
@@ -41,13 +93,13 @@
     .dropdown .submenu {
       display: none;
       position: absolute;
-      top: -94%;
-      left: -33px;
+      top: -77%;
+      left: -23px;
       background: #ffffff;
       /* border-radius: 4px; */
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       list-style: none;
-      min-width: 170px;
+      min-width: 180px; 
       min-height: 120px;
       z-index: 100;
       padding-top: 13px;  
@@ -57,9 +109,11 @@
       padding: 0.5rem 1rem;
       color: #2c3e50;
       text-decoration: none;
+      font-family: 'Gob_CL' ,sans-serif;
+      text-transform: uppercase;
     }
     .dropdown .submenu li a:hover {
-      background: #bdc3c7;
+      font-weight: 600;
       color: #2c3e50;
     }
 
@@ -78,15 +132,15 @@
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-family: 'Gob_CL', sans-serif;
+  font-size: 18px;
+  font-weight: 300  ;
   height: 40px;
   line-height: 20px;
   list-style: none;
   margin: 0;
   outline: none;
-  padding: 10px 16px;
+  padding: 10px 20px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -95,9 +149,14 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  text-transform: uppercase;
 }
 
 .button-1:hover,
 .button-1:focus {
-  background-color: #F082AC;
+  background-color: #366e6f;
+}
+
+.fa-user{
+  padding: 0 5px 0 0;
 }
