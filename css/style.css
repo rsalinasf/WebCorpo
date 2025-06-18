@@ -251,6 +251,7 @@ section {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  font-family: 'Gob_CL', sans-serif;
 }
 
 
@@ -299,6 +300,46 @@ section {
 }
 
 .contenedor-s1 i{
-  color: blue;
+  color: rgb(0, 20, 169);
   padding-right: 6px;
+  font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el ícono de WhatsApp flotante */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; /* Color de WhatsApp */
+    color: white;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    font-size: 40px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e; /* Cambia el color al pasar el mouse */
+}
+
+.whatsapp-icon {
+    margin-top: 1px; /* Ajusta la posición del ícono si es necesario */
 }
