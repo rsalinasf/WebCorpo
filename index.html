@@ -4,38 +4,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+
   <title>Corporación Municipal de María Pinto</title>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="">Inicio</a>
-      <a href="">Destacado</a>
 
-      <!-- Dropdown en "Concursos" -->
+
+  <header>
+  </header>
+
+
+  <nav>
+      <a href="">Inicio</a>
+      <!-- Dropdown en "Nosotros" -->
       <div class="dropdown">
-        <a href="javascript:void(0)">Concursos ▾</a>
-        <ul class="submenu">
+        <a href="javascript:void(0)">Nosotros ▾</a>
+        <ul class="submenu1">
+          <li><a href="#" data-value="1">Directorio</a></li>
+          <li><a href="#" data-value="2">Organigrama</a></li>
+        </ul>
+      </div>
+
+      <!-- Dropdown en "Salud" -->
+      <div class="dropdown">
+        <a href="javascript:void(0)">Salud ▾</a>
+        <ul class="submenu2">
           <li><a href="#" data-value="1">Licitaciones</a></li>
           <li><a href="#" data-value="2">Salud</a></li>
           <li><a href="#" data-value="3">Educación</a></li>
         </ul>
       </div>
 
-      <a href="">Canal Online</a>
-      <a href="" id="contacto">Contacto</a>
+      <!-- Dropdown en "Educación" -->
+      <div class="dropdown">
+        <a href="javascript:void(0)">Educación ▾</a>
+        <ul class="submenu3">
+          <li><a href="#" data-value="1">Licitaciones</a></li>
+          <li><a href="#" data-value="2">Salud</a></li>
+          <li><a href="#" data-value="3">Educación</a></li>
+        </ul>
+      </div>
+      <a href="">Canal online</a>
+      <a href="">Contacto</a>
+
+
+      
       <button class="button-1" role="button"><i class="fa-solid fa-user"></i> Intranet</button>
-    </nav>
-  </header>
+  </nav>
+
+
+  <section class="section-1">
+    <h1>Mejor Comuna Rural</h1>
+    <p>Juntos Mejorando nuestra Salud y Educación</p>
+    <div class="contenedor-s1">
+        <a href=""><i class="bi bi-file-earmark-text"></i>Ley Transparencia</a>
+        <a href=""><i class="bi bi-file-earmark-text"></i>Transparencia Activa</a>
+        <a href=""><i class="bi bi-file-earmark-text"></i>Ley del Lobby</a>
+        <a href=""><i class="bi bi-file-earmark-text"></i>Trámites y servicios de Salud</a>
+        <a href=""><i class="bi bi-file-earmark-text"></i>Trámites y servicios de Educación</a>
+    </div>
+  </section>
+  
 
 
 
 
 
-
-    <!-- Scrip FONTAWESOME (ICONOS) -->
+    <!-- Script FONTAWESOME (ICONOS) -->
     <script src="https://kit.fontawesome.com/8dc1d7d23f.js" crossorigin="anonymous"></script>
-     <!-- Scrip MAIN.JS (Escencial para funcionamiento) -->
+     <!-- Script MAIN.JS (Escencial para funcionamiento) -->
     <script src="js/main.js"></script>
 </body>
 </html>

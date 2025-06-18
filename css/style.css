@@ -40,9 +40,17 @@
  
  /* Reset y básicos */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Gob_CL' ,sans-serif; }
+    body { font-family: 'Gob_CL' ,sans-serif; 
+    }
 
-    header { 
+   
+
+    nav { 
+      display: flex; 
+      padding: 0.2rem 5rem 0.2rem 1rem; 
+      align-items: center; 
+      justify-content: 
+      flex-end;
       background: linear-gradient(
         90deg,
         #2e6a6a 0%,
@@ -50,10 +58,11 @@
         #e2a67b 75%,
         #d78b6c 100%
       );
-      margin-top: 3rem;
-   }
-
-    nav { display: flex; padding: 0.5rem 5rem 0.5rem 1rem; align-items: center; justify-content: flex-end;}
+      position: relative;       /* o `sticky` si quieres que se pegue al hacer scroll */
+      z-index: 100;
+      margin-top: 3rem;         /* tu espacio superior */
+      width: 100%;
+    }
     
 
     /* Estilo de los enlaces principales */
@@ -63,7 +72,7 @@
       text-decoration: none;
       margin-right: 2rem;
       position: relative;
-      padding: 10px 20px;
+      padding: 15px 20px;
       font-size: 18px;
       text-transform: uppercase;
     }
@@ -86,25 +95,26 @@
 
     }
 
+/* ---------------- Dropdown 1 -----------------*/
+
     /* Contenedor dropdown */
     .dropdown { position: relative; }
 
     /* Submenú oculto */
-    .dropdown .submenu {
+    .dropdown .submenu1 {
       display: none;
       position: absolute;
-      top: -77%;
-      left: -23px;
+      top: 172%;
+      left: -22px;
       background: #ffffff;
       /* border-radius: 4px; */
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       list-style: none;
-      min-width: 180px; 
-      min-height: 120px;
+      min-width: 168px;
       z-index: 100;
-      padding-top: 13px;  
+      padding: 10px 0px;
     }
-    .dropdown .submenu li a {
+    .dropdown .submenu1 li a {
       display: block;
       padding: 0.5rem 1rem;
       color: #2c3e50;
@@ -112,13 +122,82 @@
       font-family: 'Gob_CL' ,sans-serif;
       text-transform: uppercase;
     }
-    .dropdown .submenu li a:hover {
+    .dropdown .submenu1 li a:hover {
       font-weight: 600;
       color: #2c3e50;
     }
 
     /* Mostrar submenu on hover */
-    .dropdown:hover .submenu {
+    .dropdown:hover .submenu1 {
+      display: block;
+    }
+
+
+  /* ---------------- Dropdown 2 -----------------*/
+
+    /* Submenú oculto */
+    .dropdown .submenu2 {
+      display: none;
+      position: absolute;
+      top: 172%;
+      left: -22px;
+      background: #ffffff;
+      /* border-radius: 4px; */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      list-style: none;
+      min-width: 150px; 
+      z-index: 100;
+      padding: 10px 0px;
+    }
+    .dropdown .submenu2 li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #2c3e50;
+      text-decoration: none;
+      font-family: 'Gob_CL' ,sans-serif;
+      text-transform: uppercase;
+    }
+    .dropdown .submenu2 li a:hover {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    /* Mostrar submenu on hover */
+    .dropdown:hover .submenu2 {
+      display: block;
+    }
+
+/* ---------------- Dropdown 3 -----------------*/
+
+    /* Submenú oculto */
+    .dropdown .submenu3 {
+      display: none;
+      position: absolute;
+      top: 172%;
+      left: -22px;
+      background: #ffffff;
+      /* border-radius: 4px; */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      list-style: none;
+      min-width: 180px; 
+      z-index: 100;
+      padding: 10px 0px;  
+    }
+    .dropdown .submenu3 li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #2c3e50;
+      text-decoration: none;
+      font-family: 'Gob_CL' ,sans-serif;
+      text-transform: uppercase;
+    }
+    .dropdown .submenu3 li a:hover {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    /* Mostrar submenu on hover */
+    .dropdown:hover .submenu3 {
       display: block;
     }
 
@@ -159,4 +238,67 @@
 
 .fa-user{
   padding: 0 5px 0 0;
+}
+
+
+
+/* --------------------- Opciones para todos los section -------------------------- */
+
+section {
+  position: relative;        /* para que el z-index funcione */
+  z-index: 1;                /* < 100, queda detrás del nav */
+  min-height: 100vh;         /* ocupa al menos toda la pantalla */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+
+/* --------------------- Section 1 -------------------------- */
+
+.section-1{
+  min-height: 100.5vh;
+  margin-top: -6.5rem;
+  background-color: #2c3e50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.section-1 h1 {
+  color: white;
+  font-size: 6rem;
+}
+
+.section-1 p{
+  color: white;
+  font-size: 3rem;
+}
+
+.contenedor-s1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
+  padding: 1rem;
+
+  margin-top: 4rem;
+}
+
+.contenedor-s1 a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.contenedor-s1 i{
+  color: blue;
+  padding-right: 6px;
 }
