@@ -44,7 +44,7 @@
     }
 
    
-
+/*-------- Logo y Fondo Blanco del logo ------------*/
 
     /* 1) Header blanco con recorte diagonal */
     .brand-header {
@@ -58,6 +58,7 @@
         (0 0) → (70% 0) → (50% 100%) → (0 100%)  */
       clip-path: polygon(0 0, 53% 0, 50% 100%, 0 100%);
       z-index: 200; /* por encima del nav */
+      min-width: 70vh;
     }
 
     /* 2) Logo dentro del header, centrado verticalmente */
@@ -73,11 +74,11 @@
     }
 
 
+/*------------- END HEADER (LOGO)  ------------*/
 
 
 
-
-
+/*--------- NAVBAR ----------*/
 
     nav { 
       display: flex; 
@@ -119,15 +120,16 @@
       top: 50%;
       transform: translateY(-50%);
     }
+    
 
 
-    nav > a:hover,
-    nav > .dropdown:hover > a {
+    nav > a:not(.broadcast):hover,
+    nav > .dropdown:hover > a:not(.broadcast) {
       color: #353535;
       background-color: #ffffff7b;
       border-radius: 15px;
-
     }
+
 
 /* ---------------- Dropdown 1 -----------------*/
 
@@ -230,50 +232,127 @@
       color: #2c3e50;
     }
 
-    /* Mostrar submenu on hover */
     .dropdown:hover .submenu3 {
       display: block;
     }
 
 
+      
+
+/*---------------- Icono Streaming y Animacion Streaming ---------*/    
+
+    .broadcast {
+      position: relative;
+      display: inline-block;
+      padding: 0 20px;
+      margin-right: 20px;
+      top: 2px;
+    }
+
+    .bi-broadcast {
+      font-size: 33px;
+      color: red;
+      animation: broadcast-pulse 2s ease-out infinite;
+    }
+
+
+    @keyframes broadcast-pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.3);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+/*---------------- Animacion Halo ----------------*/    
+
+
+    nav a.broadcast::after {
+      content: none;
+    }
+
+    .broadcast {
+      position: relative;
+    }
+    .broadcast::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 33px;
+      height: 33px;
+      background: rgba(234, 76, 137, 0.5);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: broadcast-ring 2s ease-out infinite;
+    }
+
+    @keyframes broadcast-ring {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+      }
+    }
+
+
+
+/*---------------- END  Icono Streaming y Animacion Streaming ---------*/    
+
+
+
+
+
     /* Boton intranet */
-.button-1 {
-  background-color: #EA4C89;
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: 'Gob_CL', sans-serif;
-  font-size: 18px;
-  font-weight: 300  ;
-  height: 40px;
-  line-height: 20px;
-  list-style: none;
-  margin: 0;
-  outline: none;
-  padding: 10px 20px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: color 100ms;
-  vertical-align: baseline;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  text-transform: uppercase;
-}
+    .button-1 {
+      background-color: #EA4C89;
+      border-radius: 8px;
+      border-style: none;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: 'Gob_CL', sans-serif;
+      font-size: 18px;
+      font-weight: 300  ;
+      height: 40px;
+      line-height: 20px;
+      list-style: none;
+      margin: 0;
+      outline: none;
+      padding: 10px 20px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      transition: color 100ms;
+      vertical-align: baseline;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      text-transform: uppercase;
+    }
 
-.button-1:hover,
-.button-1:focus {
-  background-color: #366e6f;
-}
+    .button-1:hover,
+    .button-1:focus {
+      background-color: #366e6f;
+    }
 
-.fa-user{
-  padding: 0 5px 0 0;
-}
+    .fa-user{
+      padding: 0 5px 0 0;
+    }
 
+
+/* ----------- END NAVBAR -----------*/
 
 
 /* --------------------- Opciones para todos los section -------------------------- */
@@ -409,10 +488,7 @@ border-radius: 10px;
 
 
 
-
-
-
-
+/*-------------- WHATSAPP FLOTANTE -------------*/
 
 /* Estilos para el ícono de WhatsApp flotante */
 .whatsapp-float {
@@ -441,3 +517,5 @@ border-radius: 10px;
 .whatsapp-icon {
     margin-top: 1px; /* Ajusta la posición del ícono si es necesario */
 }
+
+/*-------------- END WHATSAPP FLOTANTE -------------*/
