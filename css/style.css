@@ -45,6 +45,40 @@
 
    
 
+
+    /* 1) Header blanco con recorte diagonal */
+    .brand-header {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 38%;
+      height: 140px; /* ajusta la altura a tu diseño */
+      background-color: #ffffff;
+      /* clip-path define el corte diagonal:
+        (0 0) → (70% 0) → (50% 100%) → (0 100%)  */
+      clip-path: polygon(0 0, 53% 0, 50% 100%, 0 100%);
+      z-index: 200; /* por encima del nav */
+    }
+
+    /* 2) Logo dentro del header, centrado verticalmente */
+    .brand-header .logo-container {
+      position: absolute;
+      left: 4rem;            /* separación desde el borde izquierdo */
+      top: 47%;
+      transform: translateY(-50%);
+    }
+    .brand-header .logo-container img {
+      height: 120px;          /* ajusta tamaño */
+      display: block;
+    }
+
+
+
+
+
+
+
+
     nav { 
       display: flex; 
       padding: 0.2rem 5rem 0.2rem 1rem; 
@@ -259,20 +293,43 @@ section {
 
 /* --------------------- Section 1 -------------------------- */
 
-.section-1{
+.section-1 {
+  position: relative;
   min-height: 100.5vh;
   margin-top: -6.5rem;
-  background-color: #2c3e50;
+  background: url('../img/background1.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 }
+
+.section-1::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  background: linear-gradient(
+    90deg,
+    rgba(46,106,106,0.3) 0%,
+    rgba(143,163,175,0.3) 35%,
+    rgba(226,166,123,0.3) 75%,
+    rgba(215,139,108,0.3) 100%
+  );
+  z-index: 1;
+}
+
+.section-1 > * {
+  position: relative;
+  z-index: 2; /* para que el contenido quede sobre el degradado */
+}
+
 
 
 .section-1 h1 {
   color: white;
   font-size: 6rem;
+  margin-top: 6rem;
 }
 
 .section-1 p{
@@ -280,7 +337,7 @@ section {
   font-size: 3rem;
 }
 
-.contenedor-s1{
+.container-s1{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -290,7 +347,7 @@ section {
   margin-top: 4rem;
 }
 
-.contenedor-s1 a{
+.container-s1 a{
   text-decoration: none;
   color: rgb(0, 0, 0);
   margin: 10px;
@@ -299,12 +356,53 @@ section {
   border-radius: 15px;
 }
 
-.contenedor-s1 i{
+.container-s1 a:hover{
+  background-color: rgb(237, 237, 237);
+}
+
+.container-s1 i{
   color: rgb(0, 20, 169);
   padding-right: 6px;
   font-size: 1.2rem;
 }
 
+.social{
+  font-size: 2.5rem;
+    display: flex;
+    justify-content: start;
+    gap: 1rem;
+    width: 70%;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+
+.social a{
+  text-decoration: none;
+}
+
+
+.facebook i{
+  color: #4267B2;
+  font-size: 2.8rem;
+}
+
+.instagram{
+  background: linear-gradient(
+        90deg,
+        #2e6a6a 0%,
+        #8fa3af 35%,
+        #e2a67b 75%,
+        #d78b6c 100%
+      );
+padding: 6px 7px 1px 7px;
+border-radius: 10px;
+}
+
+.instagram i{
+  color: white;
+  font-size: 2rem;
+}
 
 
 
