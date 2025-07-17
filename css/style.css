@@ -1,521 +1,860 @@
- 
-
  /* Importación de Fuentes */
 
 
 
  /* Fuente Light */
-  @font-face {
-  font-family: 'Gob_CL';
-  src: url('../fonts/gobCL_Light.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
- }
-  /* Fuente Regular */
  @font-face {
-  font-family: 'Gob_CL';
-  src: url('../fonts/gobCL_Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+   font-family: 'Gob_CL';
+   src: url('../fonts/gobCL_Light.otf') format('opentype');
+   font-weight: 300;
+   font-style: normal;
+   font-display: swap;
  }
+
+ /* Fuente Regular */
+ @font-face {
+   font-family: 'Gob_CL';
+   src: url('../fonts/gobCL_Regular.otf') format('opentype');
+   font-weight: 400;
+   font-style: normal;
+   font-display: swap;
+ }
+
  /* Fuente Bold */
-  @font-face {
-  font-family: 'Gob_CL';
-  src: url('../fonts/gobCL_Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+ @font-face {
+   font-family: 'Gob_CL';
+   src: url('../fonts/gobCL_Bold.otf') format('opentype');
+   font-weight: 700;
+   font-style: normal;
+   font-display: swap;
  }
+
  /* Fuente Heavy */
-  @font-face {
-  font-family: 'Gob_CL';
-  src: url('../fonts/gobCL_Heavy.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
+ @font-face {
+   font-family: 'Gob_CL';
+   src: url('../fonts/gobCL_Heavy.otf') format('opentype');
+   font-weight: 900;
+   font-style: normal;
+   font-display: swap;
  }
- 
- 
+
+
  /* Reset y básicos */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Gob_CL' ,sans-serif; 
-    }
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
 
-   
-/*-------- Logo y Fondo Blanco del logo ------------*/
-
-    /* 1) Header blanco con recorte diagonal */
-    .brand-header {
-      position: absolute;
-      top: 10px;
-      left: 0;
-      width: 38%;
-      height: 140px; /* ajusta la altura a tu diseño */
-      background-color: #ffffff;
-      /* clip-path define el corte diagonal:
-        (0 0) → (70% 0) → (50% 100%) → (0 100%)  */
-      clip-path: polygon(0 0, 53% 0, 50% 100%, 0 100%);
-      z-index: 200; /* por encima del nav */
-      min-width: 70vh;
-    }
-
-    /* 2) Logo dentro del header, centrado verticalmente */
-    .brand-header .logo-container {
-      position: absolute;
-      left: 4rem;            /* separación desde el borde izquierdo */
-      top: 47%;
-      transform: translateY(-50%);
-    }
-    .brand-header .logo-container img {
-      height: 120px;          /* ajusta tamaño */
-      display: block;
-    }
+ body {
+   font-family: 'Gob_CL', sans-serif;
+ }
 
 
-/*------------- END HEADER (LOGO)  ------------*/
+ /*-------- Logo y Fondo Blanco del logo ------------*/
 
 
+/* 1) Header blanco con recorte diagonal */
+.brand-header {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 140px;
+  background-color: #ffffff;
+  clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
 
-/*--------- NAVBAR ----------*/
+/* 2) Contenedor del logo */
+.brand-header .logo-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 
-    nav { 
-      display: flex; 
-      padding: 0.2rem 5rem 0.2rem 1rem; 
-      align-items: center; 
-      justify-content: 
-      flex-end;
-      background: linear-gradient(
-        90deg,
-        #2e6a6a 0%,
-        #8fa3af 35%,
-        #e2a67b 75%,
-        #d78b6c 100%
-      );
-      position: relative;       /* o `sticky` si quieres que se pegue al hacer scroll */
-      z-index: 100;
-      margin-top: 3rem;         /* tu espacio superior */
-      width: 100%;
-    }
-    
-
-    /* Estilo de los enlaces principales */
-    nav > a,
-      nav > .dropdown > a {
-      color: #ecf0f1;
-      text-decoration: none;
-      margin-right: 2rem;
-      position: relative;
-      padding: 15px 20px;
-      font-size: 18px;
-      text-transform: uppercase;
-    }
-    
-    nav a:not(:last-child)::after {
-      content: "|";
-      color: rgba(255,255,255,0.6); /* tono suave */
-      position: absolute;
-      right: -0.75rem;             /* lo sitúa justo en el margen */
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    
-
-
-    nav > a:not(.broadcast):hover,
-    nav > .dropdown:hover > a:not(.broadcast) {
-      color: #353535;
-      background-color: #ffffff7b;
-      border-radius: 15px;
-    }
-
-
-/* ---------------- Dropdown 1 -----------------*/
-
-    /* Contenedor dropdown */
-    .dropdown { position: relative; }
-
-    /* Submenú oculto */
-    .dropdown .submenu1 {
-      display: none;
-      position: absolute;
-      top: 172%;
-      left: -22px;
-      background: #ffffff;
-      /* border-radius: 4px; */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      list-style: none;
-      min-width: 168px;
-      z-index: 100;
-      padding: 10px 0px;
-    }
-    .dropdown .submenu1 li a {
-      display: block;
-      padding: 0.5rem 1rem;
-      color: #2c3e50;
-      text-decoration: none;
-      font-family: 'Gob_CL' ,sans-serif;
-      text-transform: uppercase;
-    }
-    .dropdown .submenu1 li a:hover {
-      font-weight: 600;
-      color: #2c3e50;
-    }
-
-    /* Mostrar submenu on hover */
-    .dropdown:hover .submenu1 {
-      display: block;
-    }
-
-
-  /* ---------------- Dropdown 2 -----------------*/
-
-    /* Submenú oculto */
-    .dropdown .submenu2 {
-      display: none;
-      position: absolute;
-      top: 172%;
-      left: -22px;
-      background: #ffffff;
-      /* border-radius: 4px; */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      list-style: none;
-      min-width: 150px; 
-      z-index: 100;
-      padding: 10px 0px;
-    }
-    .dropdown .submenu2 li a {
-      display: block;
-      padding: 0.5rem 1rem;
-      color: #2c3e50;
-      text-decoration: none;
-      font-family: 'Gob_CL' ,sans-serif;
-      text-transform: uppercase;
-    }
-    .dropdown .submenu2 li a:hover {
-      font-weight: 600;
-      color: #2c3e50;
-    }
-
-    /* Mostrar submenu on hover */
-    .dropdown:hover .submenu2 {
-      display: block;
-    }
-
-/* ---------------- Dropdown 3 -----------------*/
-
-    /* Submenú oculto */
-    .dropdown .submenu3 {
-      display: none;
-      position: absolute;
-      top: 172%;
-      left: -22px;
-      background: #ffffff;
-      /* border-radius: 4px; */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      list-style: none;
-      min-width: 180px; 
-      z-index: 100;
-      padding: 10px 0px;  
-    }
-    .dropdown .submenu3 li a {
-      display: block;
-      padding: 0.5rem 1rem;
-      color: #2c3e50;
-      text-decoration: none;
-      font-family: 'Gob_CL' ,sans-serif;
-      text-transform: uppercase;
-    }
-    .dropdown .submenu3 li a:hover {
-      font-weight: 600;
-      color: #2c3e50;
-    }
-
-    .dropdown:hover .submenu3 {
-      display: block;
-    }
-
-
-      
-
-/*---------------- Icono Streaming y Animacion Streaming ---------*/    
-
-    .broadcast {
-      position: relative;
-      display: inline-block;
-      padding: 0 20px;
-      margin-right: 20px;
-      top: 2px;
-    }
-
-    .bi-broadcast {
-      font-size: 33px;
-      color: red;
-      animation: broadcast-pulse 2s ease-out infinite;
-    }
-
-
-    @keyframes broadcast-pulse {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: scale(1.3);
-        opacity: 0.6;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-/*---------------- Animacion Halo ----------------*/    
-
-
-    nav a.broadcast::after {
-      content: none;
-    }
-
-    .broadcast {
-      position: relative;
-    }
-    .broadcast::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 33px;
-      height: 33px;
-      background: rgba(234, 76, 137, 0.5);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      animation: broadcast-ring 2s ease-out infinite;
-    }
-
-    @keyframes broadcast-ring {
-      0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.7;
-      }
-      100% {
-        transform: translate(-50%, -50%) scale(2.5);
-        opacity: 0;
-      }
-    }
+/* 3) Imagen del logo */
+.brand-header .logo-container img {
+  max-height: 100%;
+  max-width: 55%;
+  object-fit: contain;
+  display: block;
+  margin: 0rem 4rem;
+}
 
 
 
-/*---------------- END  Icono Streaming y Animacion Streaming ---------*/    
+ /*------------- END HEADER (LOGO)  ------------*/
+
+
+
+ /*--------- NAVBAR ----------*/
+
+ nav {
+   display: flex;
+   padding: 0.2rem 5rem 0.2rem 1rem;
+   align-items: center;
+   justify-content:
+     flex-end;
+   background: linear-gradient(90deg,
+       #2e6a6a 0%,
+       #8fa3af 35%,
+       #e2a67b 75%,
+       #d78b6c 100%);
+   position: relative;
+   /* o `sticky` si quieres que se pegue al hacer scroll */
+   z-index: 100;
+   margin-top: 3rem;
+   /* tu espacio superior */
+   width: 100%;
+ }
+
+
+ /* Estilo de los enlaces principales */
+ nav>a,
+ nav>.dropdown>a {
+   color: #ecf0f1;
+   text-decoration: none;
+   margin-right: 2rem;
+   position: relative;
+   padding: 15px 20px;
+   font-size: 18px;
+   text-transform: uppercase;
+ }
+
+ nav a:not(:last-child)::after {
+   content: "|";
+   color: rgba(255, 255, 255, 0.6);
+   /* tono suave */
+   position: absolute;
+   right: -0.75rem;
+   /* lo sitúa justo en el margen */
+   top: 50%;
+   transform: translateY(-50%);
+ }
+
+
+
+ nav>a:not(.broadcast):hover,
+ nav>.dropdown:hover>a:not(.broadcast) {
+   color: #353535;
+   background-color: #ffffff7b;
+   border-radius: 15px;
+ }
+
+
+ /* ---------------- Dropdown 1 -----------------*/
+
+ /* Contenedor dropdown */
+ .dropdown {
+   position: relative;
+ }
+
+ /* Submenú oculto */
+ .dropdown .submenu1 {
+   display: none;
+   position: absolute;
+   top: 172%;
+   left: -22px;
+   background: #ffffff;
+   /* border-radius: 4px; */
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+   list-style: none;
+   min-width: 168px;
+   z-index: 100;
+   padding: 10px 0px;
+ }
+
+ .dropdown .submenu1 li a {
+   display: block;
+   padding: 0.5rem 1rem;
+   color: #2c3e50;
+   text-decoration: none;
+   font-family: 'Gob_CL', sans-serif;
+   text-transform: uppercase;
+ }
+
+ .dropdown .submenu1 li a:hover {
+   font-weight: 600;
+   color: #2c3e50;
+ }
+
+ /* Mostrar submenu on hover */
+ .dropdown:hover .submenu1 {
+   display: block;
+ }
+
+
+ /* ---------------- Dropdown 2 -----------------*/
+
+ /* Submenú oculto */
+ .dropdown .submenu2 {
+   display: none;
+   position: absolute;
+   top: 172%;
+   left: -22px;
+   background: #ffffff;
+   /* border-radius: 4px; */
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+   list-style: none;
+   min-width: 150px;
+   z-index: 100;
+   padding: 10px 0px;
+ }
+
+ .dropdown .submenu2 li a {
+   display: block;
+   padding: 0.5rem 1rem;
+   color: #2c3e50;
+   text-decoration: none;
+   font-family: 'Gob_CL', sans-serif;
+   text-transform: uppercase;
+ }
+
+ .dropdown .submenu2 li a:hover {
+   font-weight: 600;
+   color: #2c3e50;
+ }
+
+ /* Mostrar submenu on hover */
+ .dropdown:hover .submenu2 {
+   display: block;
+ }
+
+ /* ---------------- Dropdown 3 -----------------*/
+
+ /* Submenú oculto */
+ .dropdown .submenu3 {
+   display: none;
+   position: absolute;
+   top: 172%;
+   left: -22px;
+   background: #ffffff;
+   /* border-radius: 4px; */
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+   list-style: none;
+   min-width: 180px;
+   z-index: 100;
+   padding: 10px 0px;
+ }
+
+ .dropdown .submenu3 li a {
+   display: block;
+   padding: 0.5rem 1rem;
+   color: #2c3e50;
+   text-decoration: none;
+   font-family: 'Gob_CL', sans-serif;
+   text-transform: uppercase;
+ }
+
+ .dropdown .submenu3 li a:hover {
+   font-weight: 600;
+   color: #2c3e50;
+ }
+
+ .dropdown:hover .submenu3 {
+   display: block;
+ }
 
 
 
 
+ /*---------------- Icono Streaming y Animacion Streaming ---------*/
 
-    /* Boton intranet */
-    .button-1 {
-      background-color: #EA4C89;
-      border-radius: 8px;
-      border-style: none;
-      box-sizing: border-box;
-      color: #FFFFFF;
-      cursor: pointer;
-      display: inline-block;
-      font-family: 'Gob_CL', sans-serif;
-      font-size: 18px;
-      font-weight: 300  ;
-      height: 40px;
-      line-height: 20px;
-      list-style: none;
-      margin: 0;
-      outline: none;
-      padding: 10px 20px;
-      position: relative;
-      text-align: center;
-      text-decoration: none;
-      transition: color 100ms;
-      vertical-align: baseline;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      text-transform: uppercase;
-    }
+ .broadcast {
+   position: relative;
+   display: inline-block;
+   padding: 0 20px;
+   margin-right: 20px;
+   top: 2px;
+ }
 
-    .button-1:hover,
-    .button-1:focus {
-      background-color: #366e6f;
-    }
-
-    .fa-user{
-      padding: 0 5px 0 0;
-    }
+ .bi-broadcast {
+   font-size: 33px;
+   color: red;
+   animation: broadcast-pulse 2s ease-out infinite;
+ }
 
 
-/* ----------- END NAVBAR -----------*/
+ @keyframes broadcast-pulse {
+   0% {
+     transform: scale(1);
+     opacity: 1;
+   }
+
+   50% {
+     transform: scale(1.3);
+     opacity: 0.6;
+   }
+
+   100% {
+     transform: scale(1);
+     opacity: 1;
+   }
+ }
+
+ /*---------------- Animacion Halo ----------------*/
 
 
-/* --------------------- Opciones para todos los section -------------------------- */
+ nav a.broadcast::after {
+   content: none;
+ }
 
-section {
-  position: relative;        /* para que el z-index funcione */
-  z-index: 1;                /* < 100, queda detrás del nav */
-  min-height: 100vh;         /* ocupa al menos toda la pantalla */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  font-family: 'Gob_CL', sans-serif;
+ .broadcast {
+   position: relative;
+ }
+
+ .broadcast::before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 33px;
+   height: 33px;
+   background: rgba(234, 76, 137, 0.5);
+   border-radius: 50%;
+   transform: translate(-50%, -50%);
+   animation: broadcast-ring 2s ease-out infinite;
+ }
+
+ @keyframes broadcast-ring {
+   0% {
+     transform: translate(-50%, -50%) scale(1);
+     opacity: 0.7;
+   }
+
+   100% {
+     transform: translate(-50%, -50%) scale(2.5);
+     opacity: 0;
+   }
+ }
+
+
+
+ /*---------------- END  Icono Streaming y Animacion Streaming ---------*/
+
+
+
+
+
+ /* Boton intranet */
+ .button-1 {
+   background-color: #EA4C89;
+   border-radius: 8px;
+   border-style: none;
+   box-sizing: border-box;
+   color: #FFFFFF;
+   cursor: pointer;
+   display: inline-block;
+   font-family: 'Gob_CL', sans-serif;
+   font-size: 18px;
+   font-weight: 300;
+   height: 40px;
+   line-height: 20px;
+   list-style: none;
+   margin: 0;
+   outline: none;
+   padding: 10px 20px;
+   position: relative;
+   text-align: center;
+   text-decoration: none;
+   transition: color 100ms;
+   vertical-align: baseline;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   text-transform: uppercase;
+ }
+
+ .button-1:hover,
+ .button-1:focus {
+   background-color: #366e6f;
+ }
+
+ .fa-user {
+   padding: 0 5px 0 0;
+ }
+
+
+ /* ----------- END NAVBAR -----------*/
+
+
+ /* --------------------- Opciones para todos los section -------------------------- */
+
+ section {
+   position: relative;
+   /* para que el z-index funcione */
+   z-index: 1;
+   /* < 100, queda detrás del nav */
+   min-height: 100vh;
+   /* ocupa al menos toda la pantalla */
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   font-family: 'Gob_CL', sans-serif;
+ }
+
+
+
+
+ /* --------------------- Section 1 -------------------------- */
+
+ .section-1 {
+   position: relative;
+   min-height: 100.5vh;
+   margin-top: -6.5rem;
+   background: url('../img/background1.jpg') center/cover no-repeat;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   overflow: hidden;
+ }
+
+ .section-1::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   /* top:0; right:0; bottom:0; left:0; */
+   background: linear-gradient(90deg,
+       rgba(46, 106, 106, 0.3) 0%,
+       rgba(143, 163, 175, 0.3) 35%,
+       rgba(226, 166, 123, 0.3) 75%,
+       rgba(215, 139, 108, 0.3) 100%);
+   z-index: 1;
+ }
+
+ .section-1>* {
+   position: relative;
+   z-index: 2;
+   /* para que el contenido quede sobre el degradado */
+ }
+
+
+
+ .section-1 h1 {
+   color: white;
+   font-size: 6rem;
+   margin-top: 6rem;
+ }
+
+ .section-1 p {
+   color: white;
+   font-size: 3rem;
+ }
+
+ .container-s1 {
+   min-width: 100px;
+   padding: 1rem;
+   margin-top: 4rem;
+ }
+
+ .pills{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+ }
+
+
+ .pills a {
+   text-decoration: none;
+   color: rgb(0, 0, 0);
+   margin: 10px;
+   padding: 10px;
+   background-color: white;
+   border-radius: 15px;
+ }
+
+ .pills a:hover {
+   background-color: rgb(237, 237, 237);
+ }
+
+ .pills i {
+   color: rgb(0, 20, 169);
+   padding-right: 6px;
+   font-size: 1.2rem;
+ }
+
+ .social {
+   font-size: 2.5rem;
+   display: flex;
+   justify-content: start;
+   gap: 1rem;
+   align-items: center;
+   margin: 3rem 10px;
+ }
+
+
+ .social a {
+   text-decoration: none;
+ }
+
+
+ .facebook i {
+   color: #4267B2;
+   font-size: 2.8rem;
+ }
+
+ .instagram {
+   background: linear-gradient(90deg,
+       #2e6a6a 0%,
+       #8fa3af 35%,
+       #e2a67b 75%,
+       #d78b6c 100%);
+   padding: 6px 7px 1px 7px;
+   border-radius: 10px;
+ }
+
+ .instagram i {
+   color: white;
+   font-size: 2rem;
+ }
+
+
+
+
+
+ 
+
+/* Estructura base */
+.section-2 {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.titulosSection {
+  background: linear-gradient(90deg, #49dede 0%, #71a8ca 35%, #499baf 75%, #e1d143 100%);
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.titulosSection h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.galery-container {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Carousel base */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.carousel .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel .slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+}
+
+.overlay-text.dark {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.overlay-text.color1 {
+  background: linear-gradient(to right, #49dede, #e1d143);
+}
+
+/* Tamaños */
+.large-carousel {
+  width: 700px;
+  height: 400px;
+}
+
+.small-carousel {
+  width: 330px;
+  height: 195px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+  .galery-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .large-carousel,
+  .small-carousel {
+    width: 90vw;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+
+  .right-column {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .small-carousel {
+    width: 43vw;
+  }
 }
 
 
 
 
-/* --------------------- Section 1 -------------------------- */
 
-.section-1 {
-  position: relative;
-  min-height: 100.5vh;
-  margin-top: -6.5rem;
-  background: url('../img/background1.jpg') center/cover no-repeat;
+
+
+/* -----------------------------------------------------------*/
+
+
+
+
+
+.canal-online {
+  background: linear-gradient(90deg, #49dede, #71a8ca, #e1d143, #e7744c);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.titulo-canal h1 {
+  margin-bottom: 2rem;
+}
+
+.contenido-canal {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 700px;
+  height: 400px;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  border: 5px solid #f9c72c;
+  border-radius: 5px;
+}
+
+.info-canal {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-align: left;
+  color: white;
+}
+
+.info-canal ul {
+  padding-left: 1rem;
+}
+
+.redes img {
+  width: 32px;
+  margin-right: 1rem;
+}
+
+
+
+
+
+
+/* --------------------------------------------- */
+
+
+
+
+
+#contacto {
+  background: white;
+  min-height: 90vh;
+}
+
+
+#contacto h2{
+  text-align:center; color:white; background: linear-gradient(to right, #3fb2b9, #e2c12e);
+  padding: 1.5rem;
+}
+
+.contacto-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 5rem auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 0px;
+}
+
+.contacto-form {
+  flex: 1 1 400px;
+  display: flex;
   flex-direction: column;
+  gap: 15px;
+  background-color: #148ca0;
+  padding: 20px;
+  border-radius: 0px;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Gob_CL', sans-serif;
+  border: none;
+  border-radius: 0px;
+}
+
+.contacto-form button {
+  background-color: #e6cf00;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.contacto-form button:hover {
+  background-color: #d4be00;
+}
+
+.contacto-mapa {
+  flex: 1 1 400px;
+  min-height: 350px;
+  border-radius: 0px;
   overflow: hidden;
 }
 
-.section-1::before {
-  content: "";
-  position: absolute;
-  inset: 0; /* top:0; right:0; bottom:0; left:0; */
-  background: linear-gradient(
-    90deg,
-    rgba(46,106,106,0.3) 0%,
-    rgba(143,163,175,0.3) 35%,
-    rgba(226,166,123,0.3) 75%,
-    rgba(215,139,108,0.3) 100%
-  );
-  z-index: 1;
-}
-
-.section-1 > * {
-  position: relative;
-  z-index: 2; /* para que el contenido quede sobre el degradado */
-}
 
 
 
-.section-1 h1 {
-  color: white;
-  font-size: 6rem;
-  margin-top: 6rem;
-}
 
-.section-1 p{
-  color: white;
-  font-size: 3rem;
-}
-
-.container-s1{
+footer{
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-width: 100px;
+  background-color: gray;
   padding: 1rem;
-
-  margin-top: 4rem;
-}
-
-.container-s1 a{
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  margin: 10px;
-  padding: 10px;
-  background-color: white;
-  border-radius: 15px;
-}
-
-.container-s1 a:hover{
-  background-color: rgb(237, 237, 237);
-}
-
-.container-s1 i{
-  color: rgb(0, 20, 169);
-  padding-right: 6px;
-  font-size: 1.2rem;
-}
-
-.social{
-  font-size: 2.5rem;
-    display: flex;
-    justify-content: start;
-    gap: 1rem;
-    width: 70%;
-    align-items: center;
-    margin-top: 1rem;
 }
 
 
-.social a{
-  text-decoration: none;
+.texto-footer{
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.redes-footer{
+  margin-right: 25px;
 }
 
 
-.facebook i{
-  color: #4267B2;
-  font-size: 2.8rem;
+.redes-footer a{
+  font-size: 30px;
 }
 
-.instagram{
-  background: linear-gradient(
-        90deg,
-        #2e6a6a 0%,
-        #8fa3af 35%,
-        #e2a67b 75%,
-        #d78b6c 100%
-      );
-padding: 6px 7px 1px 7px;
-border-radius: 10px;
-}
 
-.instagram i{
+ .face-footer {
+   color: #4267B2;
+   font-size: 36px;
+   margin-right: 5px;
+ }
+
+ .insta-footer {
   color: white;
-  font-size: 2rem;
-}
+   background: linear-gradient(90deg,
+       #2e6a6a 0%,
+       #8fa3af 35%,
+       #e2a67b 75%,
+       #d78b6c 100%);
+   padding: 8px 4px 0px 4px;
+   border-radius: 10px;
+ }
+
+ 
 
 
 
 
 
 
-/*-------------- WHATSAPP FLOTANTE -------------*/
+ /*-------------- WHATSAPP FLOTANTE -------------*/
 
-/* Estilos para el ícono de WhatsApp flotante */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366; /* Color de WhatsApp */
-    color: white;
-    border-radius: 50%;
-    width: 65px;
-    height: 65px;
-    text-align: center;
-    font-size: 40px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
+ /* Estilos para el ícono de WhatsApp flotante */
+ .whatsapp-float {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   background-color: #25d366;
+   /* Color de WhatsApp */
+   color: white;
+   border-radius: 50%;
+   width: 65px;
+   height: 65px;
+   text-align: center;
+   font-size: 40px;
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+   z-index: 1000;
+   /* Asegura que esté por encima de otros elementos */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-decoration: none;
+ }
 
-.whatsapp-float:hover {
-    background-color: #128c7e; /* Cambia el color al pasar el mouse */
-}
+ .whatsapp-float:hover {
+   background-color: #128c7e;
+   /* Cambia el color al pasar el mouse */
+ }
 
-.whatsapp-icon {
-    margin-top: 1px; /* Ajusta la posición del ícono si es necesario */
-}
+ .whatsapp-icon {
+   margin-top: 1px;
+   /* Ajusta la posición del ícono si es necesario */
+ }
 
-/*-------------- END WHATSAPP FLOTANTE -------------*/
+ /*-------------- END WHATSAPP FLOTANTE -------------*/
+
