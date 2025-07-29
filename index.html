@@ -49,7 +49,7 @@
         </ul>
       </div>
       <a href="">Contacto</a>
-      <a href="" class="broadcast"><i class="bi bi-broadcast"></i>LIVE</a>
+      <a href="" class="broadcast"><i class="bi bi-broadcast"></i></a>
       <button class="button-1" role="button"><i class="fa-solid fa-user"></i> Intranet</button>
     </nav>
   </div>
@@ -69,7 +69,7 @@
 
       <div class="social">
         <div class="facebook">
-          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-facebook-f"></i></i></a>
         </div>
         <div class="instagram">
           <a href=""><i class="bi bi-instagram"></i></a>
@@ -90,11 +90,11 @@
       <div class="carousel large-carousel">
         <div class="slide active">
           <img src="img/background1.jpg" alt="Grande 1">
-          <div class="overlay-text color1">Texto  1</div>
+          <div class="overlay-text color1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quod non obcaecati saepe nihil eligendi facilis est iusto magnam inventore.</div>
         </div>
         <div class="slide">
           <img src="img/logo.png" alt="Grande 2">
-          <div class="overlay-text color1">Texto  2</div>
+          <div class="overlay-text color1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic deserunt voluptates non rerum numquam debitis consectetur nulla tempore doloremque harum?</div>
         </div>
       </div>
 
@@ -103,21 +103,21 @@
         <div class="carousel small-carousel">
           <div class="slide active">
             <img src="img/background1.jpg" alt="Chica 1">
-            <div class="overlay-text dark">Texto 1</div>
+            <div class="overlay-text text-small dark">Lorem ipsum dolor sit amet.</div>
           </div>
           <div class="slide">
             <img src="img/logo.png" alt="Chica 3">
-            <div class="overlay-text dark">Texto 3</div>
+            <div class="overlay-text text-small dark">Lorem ipsum dolor sit amet.</div>
           </div>
         </div>
         <div class="carousel small-carousel">
           <div class="slide active">
             <img src="img/background1.jpg" alt="Chica 2">
-            <div class="overlay-text dark">Texto 2</div>
+            <div class="overlay-text text-small dark">Lorem ipsum dolor sit amet.</div>
           </div>
           <div class="slide">
             <img src="img/logo.png" alt="Chica 4">
-            <div class="overlay-text dark">Texto 4</div>
+            <div class="overlay-text text-small dark">Lorem ipsum dolor sit amet.</div>
           </div>
         </div>
       </div>
@@ -135,17 +135,20 @@
     <div class="video-wrapper">
       <!-- Video en vivo (YouTube Embed u otro servicio RTMP/HLS) -->
       <iframe id="live-frame"
-              src="https://www.youtube.com/embed/BsOG2PLEe60"
+              src="https://www.youtube.com/embed/BsOG2PLEe60?enablejsapi=1"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
       </iframe>
 
-      <!-- Video alternativo desde Google Drive (oculto por defecto) -->
-      <video id="fallback-video" controls muted style="display: none;">
-        <source src="https://www.youtube.com/watch?v=59wcc2Ml-yk" type="video/mp4">
-        Tu navegador no soporta video HTML5.
-      </video>
+      <iframe id="fallback-video"
+              src="https://www.youtube.com/embed/RTa-0FzuOwE"
+            
+              frameborder="0"
+              allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              style="display: none; width: 100%; height: 100%;">
+      </iframe>
     </div>
 
     <div class="info-canal">
@@ -160,8 +163,8 @@
       </ul>
       <h3>CONECTA CON NOSOTROS</h3>
       <div class="redes">
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="fa-brands fa-facebook-f face-footer"></i></i></a>
+        <a href=""><i class="bi bi-instagram insta-footer"></i></a>
       </div>
     </div>
   </div>
@@ -195,7 +198,7 @@
 
 <footer>
   <div class="redes-footer">
-    <a href=""><i class="bi bi-facebook face-footer"></i></a>
+    <a href=""><i class="fa-brands fa-facebook-f face-footer"></i></i></a>
     <a href=""><i class="bi bi-instagram insta-footer"></i></a>
   </div>
   <h1 class="texto-footer">© 2025 Derechos reservados CMMP</h1>
@@ -214,6 +217,9 @@
   <script src="https://kit.fontawesome.com/8dc1d7d23f.js" crossorigin="anonymous"></script>
   <!-- Script MAIN.JS (Escencial para funcionamiento) -->
   <script src="js/main.js"></script>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+
 </body>
 
 </html>

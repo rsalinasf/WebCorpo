@@ -12,8 +12,6 @@
     });
 
 
-
-
   
     function startCarousel(selector, interval = 4000) {
       const carousel = document.querySelector(selector);
@@ -37,21 +35,41 @@
 
 
     
-  document.addEventListener("DOMContentLoaded", function () {
-    const liveFrame = document.getElementById("live-frame");
-    const fallbackVideo = document.getElementById("fallback-video");
 
-    // Timeout: si en 10 segundos no carga, mostramos el video de respaldo
-    const fallbackTimeout = setTimeout(() => {
+  let player;
+  let fallbackTimeout;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('live-frame', {
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    // Esperamos 10 segundos. Si no comienza a reproducir, mostramos el fallback
+    fallbackTimeout = setTimeout(() => {
+      const liveFrame = document.getElementById("live-frame");
+      const fallbackframe = document.getElementById("fallback-video");
+
+      
       liveFrame.style.display = "none";
-      fallbackVideo.style.display = "block";
-      fallbackVideo.play();
+      fallbackframe.style.display = "block";
+      fallbackframe.play();
     }, 10000);
 
-    // Si el iframe carga correctamente antes de 10s, no hacemos nada
-    liveFrame.onload = () => {
+    
+  }
+
+  function onPlayerStateChange(event) {
+    // Estado 1 = reproduciendo (está en vivo o tiene contenido)
+    if (event.data === YT.PlayerState.PLAYING) {
       clearTimeout(fallbackTimeout);
-    };
-  });
+    }
+  }
+
+
 
 
