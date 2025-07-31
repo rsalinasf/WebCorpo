@@ -653,14 +653,15 @@
 
 
 .canal-online {
-  background: linear-gradient(90deg, #50baca, #949f9c, #eb7d60);
+  background-image: url("../img/Fondo.png");
   color: white;
   padding: 2rem;
   text-align: center;
 }
 
-.titulo-canal h1 {
-  margin-bottom: 2rem;
+.titulo-canal img {
+  max-width: 500px;
+  margin-bottom: 3rem;
 }
 
 .contenido-canal {
@@ -669,7 +670,6 @@
   align-items: flex-start;
   gap: 2rem;
   flex-wrap: wrap;
-  margin-top: 8rem;
 }
 
 .video-wrapper {
